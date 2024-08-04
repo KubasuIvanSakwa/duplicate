@@ -24,9 +24,14 @@ export default function Home() {
             <p>
               Enjoy a spa treatment in the comfort of your home or hotel in Nairobi or an adjacent town.
             </p>
-            <Link to="/contact" className="book-now-btn">
-              Book Now
-            </Link>
+            <div className="book-buttons">
+              <Link to="/contact" className="book-now-btn" target="_blank" rel="noopener noreferrer">
+                Book Online
+              </Link>
+              <a href="https://wa.me/+254701636709" className="book-now-btn whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                Book via WhatsApp
+              </a>
+            </div>
           </animated.div>
           <animated.div style={slideInFromRight} className="home-image">
             <img src={HomeImage} alt="Beauty Lynk Spa services" />

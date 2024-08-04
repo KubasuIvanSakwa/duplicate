@@ -3,6 +3,7 @@
 .navbar {
   background-color: var(--white-color);
   padding: 1rem;
+  padding-bottom: 1.4rem;
   position: fixed;
   width: 100%;
   top: 0;
@@ -20,11 +21,23 @@
   padding: 0 1rem;
 }
 
+
 .logo {
-  height: 100px; /* Adjust height */
+  position: absolute;
+  top: -30px;
+  left: 0;
+  height: 200px; /* Adjust height */
+  padding: none;
+  width: 100%;
+  display:inline-block;
+  max-width: 250px; /* Set a maximum width if needed */
+}
+
+.logo {
+  position: absolute;
+  height:150px; /* Adjust height */
   width: auto;
   display: block;
-  max-width: 250px; /* Set a maximum width if needed */
 }
 
 .menu-icon {
@@ -133,7 +146,7 @@
 .book-now-nav-btn {
   display: block;
   color: var(--white-color);
-  background-color: var(--highlight-color);
+  background-color: #25D366;
   padding: 10px 20px;
   border-radius: 25px;
   margin-top: 1rem;
@@ -141,14 +154,31 @@
 }
 
 .book-now-nav-btn:hover {
-  background-color: var(--highlight-color1);
-  color: var(--white-color);
+  background-color: #58ee8f;
+  color: rgb(61, 59, 59);
 }
 
 /* Media Queries */
 
 /* Small devices (phones, 576px and up) */
 @media (max-width: 576px) {
+
+  .logo {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    height: 150px; /* Adjust height */
+  }
+
+
+  .logo {
+    position: absolute;
+    height:130px; /* Adjust height */
+    width: auto;
+    display: block;
+  }
+
+
   .navbar-container {
     flex-wrap: wrap;
   }
@@ -179,10 +209,12 @@
   }
 
   .book-now-nav-btn {
-    display: block;
+    display: inline-flex;
+    position: absolute;
+    left: 40%;
     color: var(--white-color);
-    background-color: var(--highlight-color);
-    padding: 10px 20px;
+    background-color: #25D366;
+    padding: 6px 10px;
     border-radius: 25px;
     margin-top: 1rem;
     width: auto;

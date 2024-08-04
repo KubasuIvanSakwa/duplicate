@@ -64,5 +64,6 @@ tbody tr:nth-child(odd) {
 }
 
 .map-link:hover {
-  background-color: #e67e22;
+  background-color: #e9954b;
+  COLOR: rgb(52, 49, 49);
 }
