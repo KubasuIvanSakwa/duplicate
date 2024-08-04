@@ -22,7 +22,6 @@ function Navbar() {
     {
       id: 2,
       title: 'Services',
-      link: '/services',
       items: [
         { id: 0, title: 'Pedicure & Manicure', link: '/pedicure-manicure' },
         { id: 1, title: 'Nail Art', link: '/nail-art' },
@@ -58,7 +57,7 @@ function Navbar() {
     <nav className={`navbar ${isOpen ? 'open' : ''}`}>
       <div className="navbar-container">
         <Link to="/" className="logo-link">
-          <img src={LogoSVG} alt="Lynk Beauty Spa" className="logo" />
+          <img src={LogoSVG} alt="Lynk Beauty Spa" className="logo " />
         </Link>
         <button className="menu-icon" onClick={toggleMenu}>
           <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
@@ -87,8 +86,8 @@ function Navbar() {
             </li>
           ))}
         </ul>
-        <Link to="/contact" className="book-now-nav-btn">
-          Book Now
+        <Link to="https://wa.me/+254701636709" target='_blank' className="book-now-nav-btn">
+          Whatsapp
         </Link>
       </div>
     </nav>

@@ -8,6 +8,7 @@
 
 .about-container {
   padding: 20px;
+  padding-top: 10rem;
   max-width: 1200px;
   margin: auto;
   background-color: var(--background-color);
