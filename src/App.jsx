@@ -23,6 +23,7 @@ import NailExtension from './components/nailextension/NailExtension';
 // Importing the MicroBlading component
 import MicroBlading from './components/MicroBlading';
 import Gallery from './components/gallery/Gallery';
+import Privacy from './components/Privacy';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/pages" element={<Pages />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="/pedicure-manicure" element={<ManiPedi />} />
         {/* Adding the new route for Massage */}
         <Route path="/massage" element={<Massage />} />

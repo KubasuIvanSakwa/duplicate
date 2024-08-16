@@ -210,7 +210,8 @@
 
   .book-now-nav-btn {
     display: inline-flex;
-    position: absolute;
+    position: fixed;
+    top: 0;
     left: 40%;
     color: var(--white-color);
     background-color: #25D366;

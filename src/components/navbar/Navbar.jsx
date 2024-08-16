@@ -34,7 +34,7 @@ function Navbar() {
       id: 3,
       title: 'Gallery',
       link: '/gallery',
-     
+  
     },
     {
       id: 4,
@@ -46,7 +46,12 @@ function Navbar() {
       id: 5,
       title: 'Contact Us',
       link: '/contact',
-    }
+    },
+    // {
+    //   id: 6,
+    //   title: 'Privacy Statement',
+    //   link: '/privacy',
+    // }
   ];
 
   const toggleMenu = () => {
