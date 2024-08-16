@@ -45,11 +45,13 @@ body {
 }
 
 .service-card {
+  cursor: pointer;
   background-color: var(--white-color);
   border: 1px solid var(--gray-medium);
   border-radius: 8px;
   padding: 20px;
   width: calc(33.333% - 40px);
+  height: fit-content;
   box-shadow: 0 4px 8px var(--gray-light);
   transition: transform 0.2s;
 }
@@ -73,6 +75,25 @@ body {
 .service-description {
   font-size: 16px;
   color: var(--secondary-color);
+}
+
+.vidclass {
+  position: relative;
+  width: 100%;
+  height: 13rem;
+  padding: 0.2rem;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.vidclass video {
+  position: relative;
+  top: -4.7rem;
+  left: 4.8rem;
+  height: 22rem;
+  border-radius: 7px;
+  border: 1px solid var(--gray-medium);
+  transform: rotate(90deg);
 }
 
 /* Media Queries */
@@ -111,6 +132,7 @@ body {
 
   .microblading {
     padding: 10px;
+    padding-top: 6rem;
   }
 
   .microblading-title {
@@ -127,5 +149,10 @@ body {
 
   .service-description {
     font-size: 12px;
+  }
+
+  .vidclass video {
+    left: 4rem;
+    height: 18rem;
   }
 }

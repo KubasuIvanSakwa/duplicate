@@ -1,21 +1,27 @@
-import './MicroBlading.css';
+import './MicroBlading.css'
+import microbladingvid from '../../src/assets/microbladingvid.mp4'
+import Services from './Services';
 
 const MicroBlading = () => {
   const services = [
     {
       name: "Ombre",
       price: "15,000",
-      description: "Subtle shading technique for a soft, natural look."
+      description: "Subtle shading technique for a soft, natural look.",
+      'video': ''
     },
     {
       name: "Combo",
       price: "20,000",
-      description: "Combination of microblading and shading for fuller brows."
+      description: "Combination of microblading and shading for fuller brows.",
+      'video': ''
     },
+
     {
       name: "Microblading",
       price: "25,000",
-      description: "Precise hair-like strokes for a natural, fuller appearance."
+      description: "Precise hair-like strokes for a natural, fuller appearance.",
+      'video': `${microbladingvid}`
     }
   ];
 
@@ -27,11 +33,7 @@ const MicroBlading = () => {
       <h2 className="microblading-title">Microblading Services</h2>
       <div className="services-container">
         {services.map((service, index) => (
-          <div key={index} className="service-card">
-            <h3 className="service-name">{service.name}</h3>
-            <p className="service-price">Ksh {service.price}</p>
-            <p className="service-description">{service.description}</p>
-          </div>
+          <Services key={index} name={service.name} price={service.price} description={service.description} video={service.video}/>
         ))}
       </div>
     </div>
