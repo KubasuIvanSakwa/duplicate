@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from './components/navbar/Navbar';
 import HomeSkeleton from './components/homeskeleton/HomeSkeleton';
 import About from './components/about/About';
@@ -54,6 +55,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
       </Routes>
       <Footer />
+      <Analytics />
     </Router>
   );
 }
