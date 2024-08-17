@@ -30,8 +30,8 @@ export default function Footer() {
         <div className='section'>
           <h3>Contact Us</h3>
           <p><FontAwesomeIcon icon={faPhone} className='contact__icon'/>+254701636709</p>
-          <p><FontAwesomeIcon icon={faEnvelope} className='contact__icon'/>kendido95@gmail.com</p>
-          <p><FontAwesomeIcon icon={faLocationDot} className='contact__icon'/>00100, Nairobi, Kenya</p>
+          <p><FontAwesomeIcon icon={faEnvelope} className='contact__icon'/>beautylynkspa254@gmail.com</p>
+          <p><FontAwesomeIcon icon={faLocationDot} className='contact__icon'/>00100,  Lyric house kimathi street</p>
         </div>
       </div>
       <hr className='footer__hr'/>
