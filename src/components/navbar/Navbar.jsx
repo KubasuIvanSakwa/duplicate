@@ -47,11 +47,11 @@ function Navbar() {
       title: 'Contact Us',
       link: '/contact',
     },
-    // {
-    //   id: 6,
-    //   title: 'Privacy Statement',
-    //   link: '/privacy',
-    // }
+    {
+      id: 6,
+      title: 'Privacy Statement',
+      link: '/privacy',
+    }
   ];
 
   const toggleMenu = () => {
