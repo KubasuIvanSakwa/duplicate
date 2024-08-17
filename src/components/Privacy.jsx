@@ -4,12 +4,15 @@ function Privacy() {
 
     return (
         <section className='privacy-container'>
-            <h1>Data Privacy Statement for [Beauty Shop Name]</h1>
-                At [Beauty Shop Name], we value your privacy and are committed to protecting your personal information. This data privacy statement outlines how we collect, use, and safeguard your data when you interact with our services.
+            <div className="breadcrumb">
+                <p>Home /  Privacy Statement</p>
+            </div>
+            <h2>Data Privacy Statement for Lynk Beauty Spa</h2>
+            <h3 className='sub-header'>At Lynk Beauty Spa, we value your privacy and are committed to protecting your personal information. This data privacy statement outlines how we collect, use, and safeguard your data when you interact with our services.</h3>
             <details>
                 <summary> 1. Information We Collect</summary>
                 <div>
-                        We may collect the following types of personal information:
+                        <h4>We may collect the following types of personal information:</h4>
                         <ul>
                             <li>Contact Information: Name, email address, phone number, and mailing address.</li>
                             <li>Purchase Information: Details of products and services you have purchased from us.</li>
@@ -22,55 +25,66 @@ function Privacy() {
 
             <details>
                 <summary> 2. How We Use Your Information</summary>
-                <p>
-                        We use your personal information for the following purposes:
-                    • To Provide Services: To process transactions, manage appointments, and deliver products.
-                    • To Improve Our Services: To enhance our products, website, and customer service based on your feedback.
-                    • To Communicate: To send you promotional materials, newsletters, and other information you may find interesting.
-                    • For Security: To protect against fraud and unauthorized transactions.
-                    • Legal Compliance: To comply with legal obligations and resolve disputes.
-                </p>
+                <div>
+                        <h4>We use your personal information for the following purposes:</h4>
+                        <ul>
+                            <li>To Provide Services: To process transactions, manage appointments, and deliver products.</li>
+                            <li>To Improve Our Services: To enhance our products, website, and customer service based on your feedback.</li>
+                            <li>To Communicate: To send you promotional materials, newsletters, and other information you may find interesting.</li>
+                            <li>For Security: To protect against fraud and unauthorized transactions.</li>
+                            <li>Legal Compliance: To comply with legal obligations and resolve disputes.</li>
+                        </ul>
+                </div>
             </details>
 
             <details>
                 <summary> 3. Data Sharing and Disclosure</summary>
-                <p>
-                        We do not sell, trade, or otherwise transfer your personal information to outside parties, except in the following cases:
-                    • Service Providers: We may share your information with third-party service providers who assist us in operating our business and providing our services e.g. order delivery
-                    • Legal Requirements: We may disclose your information when required by law or to protect our rights and safety.
-                    • Business Transfers: In the event of a merger, acquisition, or sale of assets, your personal information may be transferred to the new owner.
-                </p>
+                <div>
+                        <h4>We do not sell, trade, or otherwise transfer your personal information to outside parties, except in the following cases:</h4>
+                        <ul>
+                            <li>Service Providers: We may share your information with third-party service providers who assist us in operating our business and providing our services e.g. order delivery</li>
+                            <li>Legal Requirements: We may disclose your information when required by law or to protect our rights and safety.</li>
+                            <li> Business Transfers: In the event of a merger, acquisition, or sale of assets, your personal information may be transferred to the new owner.</li>
+                        </ul>
+                </div>
             </details>
 
             <details>
                 <summary> 4. Data Security</summary>
-                <p>
-                    We implement a variety of security measures to maintain the safety of your personal information. These include:
-                    • Encryption: Data encryption to protect sensitive information.
-                    • Access Controls: Restricted access to personal data to authorized personnel only.
-                    • Regular Audits: Regular security audits to identify and mitigate risks.
-                </p>
+                <div>
+                    <h4>We implement a variety of security measures to maintain the safety of your personal information. These include:</h4>
+                    <ul>
+                        <li>Encryption: Data encryption to protect sensitive information.</li>
+                        <li>Access Controls: Restricted access to personal data to authorized personnel only.</li>
+                        <li>Regular Audits: Regular security audits to identify and mitigate risks.</li>
+                    </ul>
+                </div>
             </details>
 
             <details>
                 <summary> 5. Your Rights</summary>
-                <p>
-                    You have the right to:
-                    • Access Your Data: Request a copy of the personal information we hold about you.
-                    • Update Your Data: Correct any inaccuracies in your personal information.
-                    • Delete Your Data: Request the deletion of your personal information, subject to certain exceptions.
-                    • Opt-Out: Unsubscribe from marketing communications at any time.
-                </p>
+                <div>
+                    <h4>You have the right to:</h4>
+                    <ul>
+                        <li>Access Your Data: Request a copy of the personal information we hold about you.</li>
+                        <li>Update Your Data: Correct any inaccuracies in your personal information.</li>
+                        <li>Delete Your Data: Request the deletion of your personal information, subject to certain exceptions.</li>
+                        <li>Opt-Out: Unsubscribe from marketing communications at any time.</li>
+                    </ul>
+                </div>
             </details>
             <details>
                 <summary> 6. Contact Us</summary>
-            <p>
-                If you have any questions about this data privacy statement or your personal information, please contact us at:
-                • Email: [Your Email Address]
-                • Phone: [Your Phone Number]
-                • Address: [Your Physical Address]
-            </p>
+                <div>
+                    <h4>If you have any questions about this data privacy statement or your personal information, please contact us at:</h4>
+                    <ul>
+                        <li>Email: beautylynkspa254@gmail.com</li>
+                        <li>Phone: +254 701 636709</li>
+                        <li>Address: Lyric house kimathi street</li>
+                    </ul>
+                </div>
             </details>
+
             <details>
                 <summary> 7. Changes to This Statement</summary>
                 <p>

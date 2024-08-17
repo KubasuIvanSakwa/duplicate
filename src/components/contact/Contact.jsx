@@ -91,7 +91,7 @@ export default function Contact() {
         <div className='contact-info'>
           <h2>Get In Touch</h2>
           <ContactInfo icon={faPhone} text="+254 701 636 709" />
-          <ContactInfo icon={faEnvelope} text="kendido95@gmail.com" />
+          <ContactInfo icon={faEnvelope} text="beautylynkspa254@gmail.com" />
           <ContactInfo icon={faLocationDot} text="00100, Kimathi street, Nairobi" />
           <ContactInfo icon={faClock} text="Mon - Sat: 09:00 - 18:00, Sun: Closed" />
         </div>
@@ -99,7 +99,7 @@ export default function Contact() {
 
       <div className='map'>
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8034959739156!2d36.82194631475797!3d-1.2920658990619976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1123456789ab%3A0x1234567890abcdef!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2s!4v1621234567890!5m2!1sen!2s" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.818602371463!2d36.81916417411529!3d-1.282652135620367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d4371433d3%3A0xe0c162a64cddf465!2sLyric%20House!5e0!3m2!1sen!2ske!4v1723892622818!5m2!1sen!2ske"
           width="100%" 
           height="450" 
           style={{border:0}} 

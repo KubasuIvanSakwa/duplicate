@@ -19,7 +19,7 @@ const MicroBlading = () => {
 
     {
       name: "Microblading",
-      price: "25,000",
+      price: "15,000",
       description: "Precise hair-like strokes for a natural, fuller appearance.",
       'video': `${microbladingvid}`
     }
