@@ -92,7 +92,7 @@ export default function Contact() {
           <h2>Get In Touch</h2>
           <ContactInfo icon={faPhone} text="+254 701 636 709" />
           <ContactInfo icon={faEnvelope} text="beautylynkspa254@gmail.com" />
-          <ContactInfo icon={faLocationDot} text="00100, Kimathi street, Nairobi" />
+          <ContactInfo icon={faLocationDot} text="00100,  Lyric house kimathi street" />
           <ContactInfo icon={faClock} text="Mon - Sat: 09:00 - 18:00, Sun: Closed" />
         </div>
       </div>
