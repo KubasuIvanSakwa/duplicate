@@ -12,10 +12,51 @@ export default function About() {
         <div className="about-description">
           <h2>About Us</h2>
           <p>
-            Lynk in Houz is a spa that specializes in a variety of services including nail treatments, massages, pedicures, and nail art. Our professional team is dedicated to providing exceptional services to ensure you leave feeling pampered and rejuvenated.
+            Welcome to Beauty Lynks where beauty meets relaxation!
+            We&apos;re more than just a nail salon—we&apos;re a haven for 
+            those who appreciate the finer things in life, where
+            every visit is an experience of pampering and perfection.
           </p>
+
           <p>
-            We take pride in our ability to offer personalized treatments tailored to your unique needs. Whether you're looking for a relaxing massage, a refreshing pedicure, or a creative nail art design, we have something for everyone.
+            Founded in 2019, Beauty Lynks was born from a passion 
+            for beauty and self-care. Our mission is to provide a
+            space where you can unwind, recharge, and leave looking 
+            and feeling your best. We believe that your nails are a 
+            reflection of your personality, and we&apos;re here to help 
+            you express yourself with stunning, creative designs.
+          </p>
+
+          <p>
+            At Beauty Lynks, we offer a full range of nail care services, 
+            from classic manicures and pedicures to luxurious spa treatments.
+            Our skilled technicians are experts in gel polish, nail art,
+            and extensions, ensuring that every detail is perfect. We 
+            also use high-quality, cruelty-free products to ensure 
+            your nails are not only beautiful but healthy too
+          </p>
+
+          <p>
+            Your comfort and satisfaction are our top priorities. 
+            We maintain the highest standards of hygiene and use only 
+            the best products to ensure your safety and well-being. We 
+            also believe in creativity and personalization—no two clients
+            are the same, and neither are their nails!
+          </p>
+
+          <p>
+            Our team of highly trained nail artists is passionate about 
+            their craft. Each technician brings a unique flair and attention 
+            to detail, ensuring that your nails are in the best hands. 
+            Whether you&apos;re looking for something classic or trendy, 
+            we&apos;ve got you covered.
+          </p>
+
+          <p>
+            here for a quick touch-up or a full day of pampering, you&apos;ll 
+            leave with nails that are sure to turn heads. Book your 
+            appointment today and treat yourself to the  Beauty Lynks
+            experience!
           </p>
         </div>
         <div className="about-team">

@@ -1,8 +1,9 @@
 import{ useState } from 'react';
 import './ManiPedi.css';
+import { Link } from 'react-router-dom';
 
 const servicesData = [
-  { title: 'Basic Mani & Pedi', price: 2000, duration: '60 mins', description: 'Basic nail care of the hands and feet + hand massage + foot massage. This is a package but you can choose to skip the hands/feet.' },
+  { title: 'Basic Mani and Pedi', price: 2000, duration: '60 mins', description: 'Basic nail care of the hands and feet + hand massage + foot massage. This is a package but you can choose to skip the hands/feet.' },
   { title: 'Dip Powder Acrylic Manicure', price: 4000, duration: '90 mins', description: 'Basic nail care + nail enhancement (gluing/sculpting of the tips to extend your nails) + overlaying (dip powder acrylic application) + designing the nail art + top coating (regular or gel polish) + hand massage. Choose this treatment for a long-lasting manicure.' },
   { title: 'Acrylic Manicure – Deluxe', price: 3500, duration: '90 mins', description: 'Basic nail care + nail enhancement (gluing/sculpting of the tips to extend your nails) + overalying (application of the dip gel acrylic on enhanced nail) + designing of nail art + top coating (regular or gel polish) + hand massage. Choose this treatment for quality & long-lasting nails without blasting your budget.' },
   { title: 'Acrylic Manicure – Basic', price: 3000, duration: '60 mins', description: 'Basic nail care + nail enhancement (gluing/sculpting of the tips to extend your nails) + overlaying (application of the dip gel on the enhanced nails) + top coating (regular or gel polish) + hand massage.' },
@@ -18,9 +19,8 @@ const servicesData = [
   { title: 'Acrylic Manicure Removal', price: 500, duration: '30 mins', description: 'The removal of acrylic nails. This service needs to be coupled with another.' },
 ];
 
-const ServiceItem = ({ title, price, duration, description }) => {
+const ServiceItem = ({ title, price, duration, description}) => {
   const [isHovered, setIsHovered] = useState(false);
-
   return (
     <div 
       className="service-item"
@@ -33,6 +33,13 @@ const ServiceItem = ({ title, price, duration, description }) => {
       </div>
       <p className="service-duration">Service length: {duration}</p>
       {isHovered && <p className="service-description">{description}</p>}
+      <Link 
+        className='mani-btn'
+        to={`https://wa.me/+254701636709?text=Inquiring about ${title} for ksh ${price}`}
+        target='_blank'
+      >
+        Book Apointment
+      </Link>
     </div>
   );
 };
