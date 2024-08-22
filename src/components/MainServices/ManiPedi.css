@@ -19,10 +19,18 @@ body {
   line-height: 1.6;
 }
 
+.mani-btn {
+  padding: 0.6rem;
+  background-color: transparent;
+  border: 1px red solid;
+  cursor: pointer;
+}
+
 .mani-pedi-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  padding-top: 10rem;
 }
 
 .page-title {
