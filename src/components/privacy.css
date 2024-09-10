@@ -1,52 +1,194 @@
+:root {
+    --primary-color: #34495e;
+    --secondary-color: #2c3e50;
+    --accent-color: #e67e22;
+    --background-color: #f7f7f7;
+    --text-color: #34495e;
+    --light-gray: #ecf0f1;
+    --gray: #bdc3c7;
+    --dark-gray: #2c3e50;
+    --highlight-color: #e67e22;
+    --highlight-color1: #d35400;
+    --white-color: #ffffff;
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Playfair Display', serif;
+}
+
+
 .privacy-container {
-    padding: 1rem;
-    padding-top: 10rem;
+    background: linear-gradient(180deg, var(--light-gray) 0%, var(--background-color) 100%);
+    padding: 4rem 1.5rem;
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-details {
-    border: 1px solid rgba(44, 78, 3, 0.19);
-    padding: 0.9rem;
-    width: 50%;
-    margin: 0.4rem;
-    border-radius: 3%;
-    cursor: pointer;
+.breadcrumb {
+    font-size: 14px;
+    margin-bottom: 1.5rem;
+    color: var(--gray);
 }
 
-details ul {
-    padding: 0.5rem
-}
-
-details ul li, details > p {
-    list-style-type: disc;
-    font-size: 0.9rem;
-    color: rgb(69, 134, 156);
-}
-
-summary {
-    margin-bottom: 0.7rem;
+.privacy-title {
+    text-align: center;
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
 }
 
 .sub-header {
     text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 900px;
+    line-height: 1.6;
+    margin: 0 auto;
+    color: var(--secondary-color);
 }
 
+.details-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
 
-/* Media Queries */
+details {
+    background-color: var(--light-gray);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    color: var(--primary-color);
+    border: 1px solid var(--gray);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+details:hover {
+    background-color: #e1e1e1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+details[open] {
+    background-color: var(--light-gray); /* Lighter background for readability */
+    transition: background-color 0.3s ease;
+}
+
+details[open] div {
+    background-color: var(--light-gray); /* Ensure readable background when opened */
+    color: var(--primary-color); /* Dark text for better contrast */
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+details div {
+    color: var(--text-color);
+}
+
+summary {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+summary:hover .icon {
+    transform: scale(1.1);
+    color: var(--accent-color);
+}
+
+/* Chevron icon added for visibility that content is hidden */
+summary::after {
+    content: " ▼";
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+    transform: rotate(180deg); /* Rotate chevron when content is open */
+}
+
+h4 {
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+/* Fix for the "Contact Us" section specifically */
+.details-container .contact-info {
+    color: var(--primary-color); /* Change text color to dark for readability */
+    background-color: var(--light-gray); /* Use lighter background for readability */
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray); /* Add a border for better visibility */
+}
+
+/* Links */
+a {
+    color: var(--highlight-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--highlight-color1);
+    text-decoration: underline;
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
+    .privacy-container {
+        padding: 2rem 1rem;
+    }
 
+    .details-container {
+        width: 90%;
+    }
 }
 
 @media (max-width: 768px) {
-.breadcrumb {
-    font-size: 12px;
-}
+    .privacy-title {
+        font-size: 2rem;
+    }
 
+    .sub-header {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
 
+    details {
+        padding: 0.8rem;
+    }
 }
 
 @media (max-width: 600px) {
+    .breadcrumb {
+        font-size: 12px;
+    }
 
-details {
-    width: 90%;
-}
+    details {
+        width: 100%;
+    }
+
+    summary {
+        font-size: 1rem;
+    }
 }

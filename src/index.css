@@ -43,10 +43,12 @@ a {
 
 a:hover {
   color: var(--highlight-color);
+  text-decoration: none;
 }
 
 ul, li {
   list-style-type: none;
+
 }
 
 img {
