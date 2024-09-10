@@ -12,6 +12,14 @@
   --font-secondary: 'EB Garamond', serif;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  font-family: var(--font-primary);
+  color: var(--secondary-color);
+}
+
 .contact-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -29,6 +37,7 @@
   padding: 2rem;
   border-radius: 8px;
   color: var(--white-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contact-header h1 {
@@ -46,6 +55,7 @@
   display: flex;
   gap: 4rem;
   margin-bottom: 3rem;
+  align-items: flex-start;
 }
 
 .contact-form {
@@ -71,19 +81,22 @@
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.contact-form select {
   padding: 0.8rem;
   border: 1px solid var(--gray-medium);
   border-radius: 4px;
   font-size: 1rem;
   font-family: var(--font-primary);
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
   outline: none;
   border-color: var(--highlight-color);
+  box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
 }
 
 .services-section {
@@ -113,8 +126,35 @@
   margin-right: 0.5rem;
 }
 
+.booking-time {
+  margin-top: 1rem;
+}
+
+.booking-time h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.booking-time input,
+.booking-time select {
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.time-note {
+  font-size: 0.9rem;
+  color: var(--gray-dark);
+  margin-top: 0.5rem;
+}
+
 .error-message {
   color: #e74c3c;
+  font-size: 0.9rem;
+}
+
+.success-message {
+  color: #2ecc71;
   font-size: 0.9rem;
 }
 
@@ -127,11 +167,17 @@ button[type="submit"] {
   font-size: 1rem;
   font-family: var(--font-primary);
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button[type="submit"]:hover {
   background-color: #d35400;
+  transform: translateY(-2px);
+}
+
+button[type="submit"]:disabled {
+  background-color: var(--gray-medium);
+  cursor: not-allowed;
 }
 
 .contact-info {
@@ -140,6 +186,7 @@ button[type="submit"]:hover {
   padding: 2rem;
   border-radius: 8px;
   color: var(--white-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info-item {
@@ -154,19 +201,10 @@ button[type="submit"]:hover {
   color: var(--highlight-color);
 }
 
-.map {
-  margin-top: 3rem;
-}
-
-.map iframe {
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-}
-
 @media (max-width: 768px) {
   .contact-content {
     flex-direction: column;
+    gap: 2rem;
   }
 
   .contact-form,

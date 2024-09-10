@@ -2,9 +2,39 @@ import './Footer.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Here you would handle the API call to your backend or service (like Mailchimp)
+    // Example: API call to subscribe the email
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setMessage('Subscription successful!');
+        setEmail(''); // Clear email input
+      } else {
+        setMessage('Failed to subscribe. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage('An error occurred. Please try again later.');
+    }
+  };
+
   return (
     <div className='footer'>
       <div className='footer__container'>
@@ -31,11 +61,27 @@ export default function Footer() {
           <h3>Contact Us</h3>
           <p><FontAwesomeIcon icon={faPhone} className='contact__icon'/>+254701636709</p>
           <p><FontAwesomeIcon icon={faEnvelope} className='contact__icon'/>beautylynkspa254@gmail.com</p>
-          <p><FontAwesomeIcon icon={faLocationDot} className='contact__icon'/>00100,  Lyric house kimathi street</p>
+          <p><FontAwesomeIcon icon={faLocationDot} className='contact__icon'/>00100, Lyric house kimathi street</p>
+        </div>
+
+        {/* Newsletter Section */}
+        <div className='section newsletter'>
+          <h3>Subscribe to Our Newsletter</h3>
+          <form onSubmit={handleSubmit} className="newsletter-form">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              required
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+          {message && <p className="message">{message}</p>}
         </div>
       </div>
       <hr className='footer__hr'/>
-        <p>Copyright © {currentYear} All rights reserved Designed by <a href="https://api.whatsapp.com/send?phone=+254715137922" target="_blank">Mark Moses</a></p>
+      <p>Copyright © {currentYear} All rights reserved. Designed by <a href="https://wa.me/+254715137922" target="_blank">Mark Moses</a></p>
     </div>
-  )
+  );
 }

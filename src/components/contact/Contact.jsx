@@ -1,32 +1,19 @@
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { faClock } from '@fortawesome/free-regular-svg-icons';
+import React, { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
-
-const ContactInfo = ({ icon, text }) => (
-  <div className="contact-info-item">
-    <FontAwesomeIcon icon={icon} className="contact-icon" />
-    <p>{text}</p>
-  </div>
-);
-
-const ServiceCheckbox = ({ service, isChecked, onToggle }) => (
-  <label className="service-checkbox">
-    <input
-      type="checkbox"
-      value={service}
-      checked={isChecked}
-      onChange={onToggle}
-    />
-    <span className="checkmark"></span>
-    {service}
-  </label>
-);
 
 export default function Contact() {
   const [selectedServices, setSelectedServices] = useState([]);
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [minDate, setMinDate] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [availableSlots, setAvailableSlots] = useState([]);
+
+  useEffect(() => {
+    const today = new Date();
+    setMinDate(today.toISOString().split('T')[0]);
+  }, []);
 
   const services = [
     'Manicure', 
@@ -45,68 +32,181 @@ export default function Contact() {
     );
   };
 
-  const handleSubmit = (e) => {
+  const generateTimeSlots = (start, end) => {
+    const slots = [];
+    let current = new Date();
+    current.setHours(start, 0, 0, 0); // start at 8:00 AM
+
+    while (current.getHours() < end) { // end at 6:00 PM
+      const time = current.toTimeString().slice(0, 5);
+      slots.push(time);
+      current.setMinutes(current.getMinutes() + 60); // increment by 1 hour
+    }
+    return slots;
+  };
+
+  const fetchAvailableSlots = (date) => {
+    setLoading(true);
+    try {
+      // This would be replaced with an actual API call to fetch available slots for the date.
+      const slots = generateTimeSlots(8, 18); // From 8:00 AM to 6:00 PM
+      setAvailableSlots(slots);
+    } catch (error) {
+      console.error('Error fetching available slots:', error);
+      setError('Failed to fetch available slots. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDateChange = (e) => {
+    const selectedDate = e.target.value;
+    fetchAvailableSlots(selectedDate); // Fetch new slots when the date changes
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (selectedServices.length === 0) {
       setError('Please select at least one service.');
-    } else {
-      setError('');
-      console.log('Form submitted');
+      setSuccessMessage('');
+      return;
+    }
+
+    const selectedTime = e.target.time.value;
+    const [hours, minutes] = selectedTime.split(':').map(Number);
+    if (hours < 8 || (hours === 18 && minutes > 0) || hours >= 19) {
+      setError('Please select a time between 8:00 AM and 6:00 PM.');
+      setSuccessMessage('');
+      return;
+    }
+
+    setError('');
+    setLoading(true);
+
+    const formData = {
+      from_name: e.target.name.value,
+      from_email: e.target.email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value,
+      services: selectedServices.join(', '),
+      preferred_date: e.target.date.value,
+      preferred_time: selectedTime,
+      to_name: 'Service Provider',
+    };
+
+    const detailedMessage = `
+      Name: ${formData.from_name}
+      Email: ${formData.from_email}
+      Subject: ${formData.subject}
+      Selected Services: ${formData.services}
+      Preferred Date: ${formData.preferred_date}
+      Preferred Time: ${formData.preferred_time}
+      
+      Message:
+      ${formData.message}
+    `;
+
+    formData.message = detailedMessage;
+
+    try {
+      const result = await emailjs.send(
+        'service_ur6r8zc',
+        'template_qhiejvw', 
+        formData,
+        'nUZanUbpUADl5qMA0'
+      );
+
+      if (result.text === 'OK') {
+        setSuccessMessage('Booking request sent successfully! We will contact you soon to confirm.');
+        setError('');
+        e.target.reset();
+        setSelectedServices([]);
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setError('Failed to send booking request. Please try again.');
+      setSuccessMessage('');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className='contact-container'>
       <div className='contact-header'>
-        <p>Home &gt; Contact Us</p>
-        <h1>Contact Us</h1>
+        <p>Home &gt; Book Appointment</p>
+        <h1>Book Your Appointment</h1>
       </div>
 
       <div className='contact-content'>
         <div className='contact-form'>
-          <h2>Send Your Message</h2>
+          <h2>Book Your Appointment</h2>
           <form onSubmit={handleSubmit}>
-            <input type='text' placeholder='Your Name' required />
-            <input type='email' placeholder='Your Email' required />
-            <input type='text' placeholder='Subject' required />
-            <textarea placeholder='Your Message' rows='5' required></textarea>
+            <input type='text' name='name' placeholder='Your Name' required />
+            <input type='email' name='email' placeholder='Your Email' required />
+            <input type='text' name='subject' placeholder='Subject' required />
+            <textarea name='message' placeholder='Your Message' rows='5' required></textarea>
+
             <div className='services-section'>
               <h3>Select Services</h3>
               <div className='services-options'>
                 {services.map((service) => (
-                  <ServiceCheckbox
-                    key={service}
-                    service={service}
-                    isChecked={selectedServices.includes(service)}
-                    onToggle={() => toggleService(service)}
-                  />
+                  <label key={service} className="service-checkbox">
+                    <input
+                      type="checkbox"
+                      value={service}
+                      checked={selectedServices.includes(service)}
+                      onChange={() => toggleService(service)}
+                    />
+                    {service}
+                  </label>
                 ))}
               </div>
-              {error && <p className='error-message'>{error}</p>}
             </div>
-            <button type='submit'>Send Message</button>
+
+            <div className='booking-time'>
+              <h3>Preferred Appointment Time</h3>
+              <input type='date' name='date' min={minDate} required onChange={handleDateChange} />
+              <select name='time' required>
+                <option value="">Select a time</option>
+                {availableSlots.map(slot => (
+                  <option key={slot} value={slot}>{slot}</option>
+                ))}
+              </select>
+              <p className="time-note">Please select a time between 8:00 AM and 6:00 PM</p>
+            </div>
+
+            {error && <p className='error-message'>{error}</p>}
+            {successMessage && <p className='success-message'>{successMessage}</p>}
+
+            <button type='submit' disabled={loading}>
+              {loading ? 'Booking...' : 'Book Appointment'}
+            </button>
           </form>
         </div>
 
         <div className='contact-info'>
-          <h2>Get In Touch</h2>
-          <ContactInfo icon={faPhone} text="+254 701 636 709" />
-          <ContactInfo icon={faEnvelope} text="beautylynkspa254@gmail.com" />
-          <ContactInfo icon={faLocationDot} text="00100,  Lyric house kimathi street" />
-          <ContactInfo icon={faClock} text="Mon - Sat: 09:00 - 18:00, Sun: Closed" />
+          <h2>Contact Information</h2>
+          <div className='contact-info-item'>
+            <span className='contact-icon'>📍</span>
+            <p>00100 Lyric house, Kimathi Street</p>
+          </div>
+          <div className='contact-info-item'>
+            <span className='contact-icon'>📞</span>
+            <p>+254 (701) 636-709</p>
+          </div>
+          <div className='contact-info-item'>
+            <span className='contact-icon'>✉️</span>
+            <p>beautylynkspa254@gmail.com</p>
+          </div>
+          <div className='contact-info-item'>
+            <span className='contact-icon'>🕒</span>
+            <p>Mon-Sat: 8:00 AM - 6:00 PM</p>
+          </div>
         </div>
-      </div>
-
-      <div className='map'>
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.818602371463!2d36.81916417411529!3d-1.282652135620367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d4371433d3%3A0xe0c162a64cddf465!2sLyric%20House!5e0!3m2!1sen!2ske!4v1723892622818!5m2!1sen!2ske"
-          width="100%" 
-          height="450" 
-          style={{border:0}} 
-          allowFullScreen="" 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade">
-        </iframe>
       </div>
     </div>
   );
