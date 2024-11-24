@@ -1,137 +1,113 @@
-:root {
-  --primary-color: #2c3e50;
-  --secondary-color: #f39c12;
-  --background-color: #f9f9f9;
-  --text-color: #333;
-  --hover-color: #ecf0f1;
-}
-
+/* Global reset */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  line-height: 1.6;
-}
-
-.mani-btn {
-  padding: 0.6rem;
-  background-color: transparent;
-  border: 1px red solid;
-  cursor: pointer;
-}
-
-.mani-pedi-container {
-  max-width: 1200px;
+/* Container for ManiPedi section */
+.mani-pedi {
+  font-family: 'Roboto Slab', serif;
+  background-color: #f7f7f7; /* Light background color */
+  padding: 3rem 1rem;
+  max-width: 80%;
   margin: 0 auto;
-  padding: 2rem;
-  padding-top: 10rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.page-title {
+/* Header Styling */
+.header {
   text-align: center;
-  color: var(--primary-color);
-  font-size: 2.5rem;
   margin-bottom: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  margin-top: 4rem
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color:var(--highlight-color); 
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Services Styling */
+.services {
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.3rem;
+  justify-content: center;
 }
 
 .service-item {
-  background-color: white;
-  border-radius: 8px;
+  background-color: #fff;
   padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.service-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.service-name-price {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  width:40%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.5rem;
-  border-bottom: 1px dotted var(--primary-color);
-  padding-bottom: 0.5rem;
+  flex-direction: column;
 }
 
-.service-name {
-  font-weight: bold;
-  color: var(--primary-color);
-  font-size: 1.1rem;
+.service-header {
+  display: flex;
+  justify-content: space-between; /* Align title on left, price on right */
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.service-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
 }
 
 .service-price {
-  font-weight: bold;
-  color: var(--secondary-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #d4af37; /* Gold background */
+  padding: 0.3rem 1rem;
+  border-radius: 5px;
 }
 
-.service-duration {
-  font-style: italic;
-  color: #7f8c8d;
-  font-size: 0.9rem;
-}
-
-.service-description {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: var(--text-color);
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.service-item:hover .service-description {
-  opacity: 1;
-  max-height: 200px;
-}
-
-.book-now-container {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.book-now-button {
-  display: inline-block;
-  background-color: var(--secondary-color);
+.price-bg{
   color: white;
-  padding: 1rem 2rem;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
+  
 }
 
-.book-now-button:hover {
-  background-color: var(--primary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.divider {
+  height: 1px;
+  background-color: #dcdcdc;
+  margin-top: 1rem;
 }
 
 @media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
+  .mani-pedi {
+    padding: 2rem 1rem;
   }
-  
-  .page-title {
-    font-size: 2rem;
+
+  .services {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .service-item {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .service-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
