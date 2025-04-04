@@ -7,8 +7,8 @@ import subprocess
 REPO_PATH = os.getcwd()  # Change if script is outside the repo
 
 # Start and end date for commits
-start_date = datetime.date(2024, 8, 5)
-end_date = datetime.date(2024, 10, 3)
+start_date = datetime.date(2025, 1, 6)
+end_date = datetime.date(2024, 3, 7)
 
 # Iterate over each day
 current_date = start_date
