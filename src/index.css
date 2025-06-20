@@ -37,6 +37,11 @@ body {
   min-height: 100vh;
 }
 
+#error {
+  color: red;
+  font-size: 2rem;
+}
+
 a {
   text-decoration: none;
   color: var(--primary-color);
