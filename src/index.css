@@ -39,6 +39,11 @@ body {
 #error {
   color: red;
   font-size: 2rem;
+  width: 100%;
+  height: 100%;
+  display:  flex;
+  justify-content: center:
+  align-items: center;
 }
 
 a {
