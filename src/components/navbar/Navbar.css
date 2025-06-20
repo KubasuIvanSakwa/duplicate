@@ -1,6 +1,7 @@
 
 
 .navbar {
+  display: none;
   background-color: var(--white-color);
   padding: 1rem;
   padding-bottom: 1.4rem;
